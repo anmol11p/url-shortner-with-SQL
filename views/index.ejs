@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section class="sectionUrlShortner">
+      <div class="form_And_ShortData">
+        <form action="/" method="post" id="form">
+          <div class="upperHeading">
+            <h2>URL Shortener</h2>
+          </div>
+          <div class="common-input">
+            <label for="URl">Enter URL:</label>
+            <input type="text" name="form[url]" />
+          </div>
+          <div class="common-input">
+            <label for="shortURL">Custom Short URL (Optional): </label>
+            <input type="text" name="form[shortCode]" />
+          </div>
+          <div class="btn">
+            <button type="submit">Shorten</button>
+          </div>
+        </form>
+
+        <ul class="shortenedURLs">
+          <% data.map(({shortCode,url}) => { %>
+          <li>
+            <a href="<%= shortCode %>" target="_blank">
+              <%= hostLink %>/<%= shortCode %> -
+            </a>
+            <span> <%= url %></span>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+    </section>
+  </body>
+</html>
